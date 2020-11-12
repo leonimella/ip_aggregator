@@ -14,6 +14,10 @@ defmodule IpAgg do
     {:reply, head, tail}
   end
 
+  def handle_call(:get_state, _from, state) do
+    {:reply, state, state}
+  end
+
   @impl true
   def handle_cast({:push, element}, state) do
     {:noreply, [element | state]}
